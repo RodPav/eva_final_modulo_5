@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bean:beans
+	xmlns:bean="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd 
+		http://www.springframework.org/schema/security 
+		http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<http use-expressions="true" auto-config="true">
+		<intercept-url pattern="/" access="permitAll"/>
+		<intercept-url pattern="/logout" access="permitAll" />
+		<intercept-url pattern="/listarEmpleados" access="isAuthenticated()" />
+		<intercept-url pattern="/mostrarEmpleado" access="isAuthenticated()"/>
+		<intercept-url pattern="/editarEmpleado" access="hasAuthority('ADMIN')" />
+		<intercept-url pattern="/guardarEmpleado" access="hasAuthority('ADMIN')" />
+		<form-login login-page="/login"
+		   authentication-failure-url="/error" 
+			username-parameter="username"
+			password-parameter="password"/>
+		<csrf/>
+		<logout logout-success-url="/login"/>
+	</http>
+	
+	<authentication-manager>
+		<authentication-provider>
+			<password-encoder hash="bcrypt"/>
+<!--  			<user-service>
+				<user name="juan" password = "$2a$10$5k4A.mcnKBASYfMNLde5Lu8uH4JnpfY7sBIsL35NFccESmFQfdksW" authorities="ADMIN, USER"/>
+				<user name="maria" password = "$2a$10$5k4A.mcnKBASYfMNLde5Lu8uH4JnpfY7sBIsL35NFccESmFQfdksW" authorities="USER"/>
+			</user-service>  -->
+			<jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="select username, password, enabled from users where username = ?"
+				authorities-by-username-query="select username, rolename as authority from roles where username = ?"
+			/>
+	
+			
+		</authentication-provider>
+	</authentication-manager>
+</bean:beans>
