@@ -53,20 +53,20 @@ public class ClienteController {
 
 	}
 
-	@PutMapping("/editarCliente/{id}")
-	public ModelAndView editarCliente(@PathVariable int id) {
+	@PutMapping("/editarCliente")
+	public ModelAndView editarCliente(Cliente cliente) {
 
 		logger.info("INICIO EDITAR CLIENTE");
 
-		logger.info("id Cliente: " + id);
+		logger.info("Cliente: " + cliente);
 
-		System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
-		Cliente cliente = clienteDAO.obtenerPorId(id);
-		return new ModelAndView("mostrarCliente", "cliente", cliente);
+		clienteDAO.editarCliente(cliente);
+		
+		return new ModelAndView("redirect:/listarClientes");
 
 	}
 
-	@PostMapping(value = "/crearCliente")
+	@PostMapping("/crearCliente")
 	public ModelAndView guardarCliente(Cliente cliente) {
 
 		logger.info("INICIO CREAR CLIENTE");
