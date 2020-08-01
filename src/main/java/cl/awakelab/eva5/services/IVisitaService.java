@@ -2,7 +2,6 @@ package cl.awakelab.eva5.services;
 
 import java.util.List;
 
-
 import cl.awakelab.eva5.model.Visita;
 
 public interface IVisitaService {
@@ -16,7 +15,4 @@ public interface IVisitaService {
 	void eliminarVisita(int id);
 	
 	Visita obtenerPorId( int id);
-
-	
-	
 }

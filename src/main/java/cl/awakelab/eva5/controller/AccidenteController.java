@@ -1,65 +1,95 @@
 package cl.awakelab.eva5.controller;
 
-import java.net.Authenticator.RequestorType;
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
-
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import cl.awakelab.eva5.controller.AccidenteController;
-
+import org.springframework.web.servlet.ModelAndView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
+import cl.awakelab.eva5.controller.AccidenteController;
+import cl.awakelab.eva5.model.Accidente;
+import cl.awakelab.eva5.services.IAccidenteService;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class Accidente
- */
-//@WebServlet("/Accidente")
+
+
 @Controller 
-public class AccidenteController extends HttpServlet{
+public class AccidenteController {
 	
        
 	private static final Logger logger = LoggerFactory.getLogger(AccidenteController.class);
 	
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		doGet(request, response);
-		String parametro = request.getParameter("parametro");
-		System.out.println("Parametros");
-		if (parametro !=null) {
-			if (parametro.equals("enviar")) {
-				//request.getRequestDispatcher("RecibeFormulario.jsp").forward(request, response);
-				getServletContext().getRequestDispatcher("/view/exitoFormulario.jsp").forward(request, response);
-			} else if (parametro.equals("FormularioAccidente")) {
-				getServletContext().getRequestDispatcher("/view/FormularioAccidente.jsp").forward(request, response);
-				}
-			} else {
-				getServletContext().getRequestDispatcher("/view/FormularioAccidente.jsp").forward(request, response);
-			}
-		}
+	@Autowired
+	IAccidenteService accidenteDAO;
+	
+	@GetMapping("/listarAccidente")
+	public ModelAndView listarAccidente() {
+
+		logger.info("INICIO LISTAR ACCIDENTE");
+
+		System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
+
+		List<Accidente> lista = accidenteDAO.listarAccidentes();
+
+		return new ModelAndView("listadoAccidentes", "lista_accidente", lista);
 	}
+	
+	@GetMapping("/mostrarAccidente/{id}")
+	public ModelAndView mostrarAccidente(@PathVariable int id) {
+
+		logger.info("INICIO MOSTRAR ACCIDENTE");
+
+		logger.info("id Accidente: " + id);
+
+		System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
+		Accidente accidente = accidenteDAO.obtenerPorId(id);
+		return new ModelAndView("mostrarAccidente", "accidente", accidente);
+
+	}
+	
+	
+	@PutMapping("/editarAccidente/{id}")
+	public ModelAndView editarAccidente(Accidente accidente) {
+
+		logger.info("INICIO EDITAR ACCIDENTE");
+
+		logger.info("Accidente: " + accidente);
+
+		accidenteDAO.editarAccidente(accidente);
+		return new ModelAndView("redirect:/listarAccidente");
+	}
+	
+	@PostMapping(value = "/crearAccidente")
+	public ModelAndView guardarAccidente(Accidente accidente) {
+
+		logger.info("INICIO CREAR ACCIDENTE");
+
+		logger.info("Datos Accidente: " + accidente);
+
+		accidenteDAO.crearAccidente(accidente);
+		return new ModelAndView("redirect:/listarAccidente");
+	}
+	
+	@DeleteMapping("/eliminarAccidente")
+	public ModelAndView eliminarAccidente(int id) {
+
+		logger.info("INICIO EDITAR ACCIDENTE");
+
+		logger.info("id Accidente: " + id);
+
+		accidenteDAO.eliminarAccidente(id);
+		return new ModelAndView("redirect:/listarAccidente");
+
+	}
+	
+}
 
 
