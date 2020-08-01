@@ -56,16 +56,14 @@ public class CapacitacionController {
 	}
 
 	@PutMapping("/editarCapa/{id}")
-	public ModelAndView editarEmpleado(@PathVariable int id) {
+	public ModelAndView editarEmpleado(Capacitacion capacitacion) {
 
 		logger.info("INICIO EDITAR CAPA");
 
-		logger.info("id Capa: " + id);
+		logger.info("Capacitacion: " + capacitacion);
 
-		System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
-		Capacitacion capacitacion = capacitacionDAO.obtenerPorId(id);
-		return new ModelAndView("mostrarCapa", "capacitacion", capacitacion);
-
+		capacitacionDAO.editarCapacitacion(capacitacion);
+		return new ModelAndView("redirect:/listarCapa");
 	}
 
 	@PostMapping(value = "/crearCapa")

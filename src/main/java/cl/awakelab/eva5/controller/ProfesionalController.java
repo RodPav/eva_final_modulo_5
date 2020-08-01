@@ -54,15 +54,14 @@ public class ProfesionalController {
 	}
 
 	@PutMapping("/editarProfesional/{id}")
-	public ModelAndView editarProfesional(@PathVariable int id) {
+	public ModelAndView editarProfesional(Profesional profesional) {
 
 		logger.info("INICIO EDITAR PROFESIONAL");
 
-		logger.info("id Profesional: " + id);
+		logger.info("Datos Profesional: " + profesional);
 
-		System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
-		Profesional profesional = profesionalDAO.obtenerPorId(id);
-		return new ModelAndView("mostrarProfesional", "profesional", profesional);
+		profesionalDAO.editarProfesional(profesional);
+		return new ModelAndView("redirect:/listarProfesionales");
 
 	}
 
