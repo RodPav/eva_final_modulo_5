@@ -1,87 +1,99 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Datos de Cliente</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/styleMostrar.css">
+<title>Cliente</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
 </head>
-
-
 <body>
-<h1>Actualizar Cliente</h1>
-	
-	<c:if test="${alerta != null}">
-		<script>
-			var message = "${alerta}";
-			alert(message);
-		</script>
-	</c:if>
+	<div class="container">
+		<c:set var="cliente" value="${cliente}"></c:set>
 
-	<form
-		action="${pageContext.request.contextPath}/AdminCliente?action=actualizar"
-		method="POST">
-		<table>
+		<h1>Editar Cliente</h1>
 
-			<tr>
-				<td>Rut:</td>
-				<td><input type="text" name="rut"
-					value="${cliente.getRutCliente()}" readonly /></td>
-			</tr>
-			<tr>
-				<td>Nombre Completo:</td>
-				<td><input type="text" name="nombre"
-					value="${cliente.getNombreCliente()}" /></td>
-			</tr>
+		<form:form action="${pageContext.request.contextPath}/editarCliente"
+			method="post">
+			<input type="hidden" name="id" value="${cliente.getIdCliente()}">
+			<div class="row">
+				<div class="col-3">Rut:</div>
+				<div class="col-3">
+					<input class="form-control" type="text" name="rut" readonly
+						value="${cliente.getRutCliente()}" />
+				</div>
+			</div>
 
-			<tr>
-				<td>Razón Social:</td>
-				<td><input type="text" name="rSocial"
-					value="${cliente.getRazonSocial()}" /></td>
-			</tr>
+			<div class="row">
+				<div class="col-3">Nombre Completo:</div>
+				<div class="col-3">
+					<input class="form-control" type="text" name="nombre"
+						value="${cliente.getNombreCliente()}" />
+				</div>
+			</div>
 
-			<tr>
-				<td>Giro Comercial:</td>
-				<td><input type="text" name="giro" value="${cliente.getGiro()}" /></td>
-			</tr>
+			<div class="row">
+				<div class="col-3">Razón social:</div>
+				<div class="col-3">
+					<input class="form-control" type="text" name="rSocial"
+						value="${cliente.getRazonSocial()}" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3">Giro comercial:</div>
+				<div class="col-3">
+					<input class="form-control" type="text" name="giro"
+						value="${cliente.getGiro()}" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3">Dirección:</div>
+				<div class="col-3">
+					<input class="form-control" type="text" name="direccion"
+						value="${cliente.getDirCliente()}" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3">Teléfono:</div>
+				<div class="col-3">
+					<input class="form-control" type="text" name="telefono"
+						value="${cliente.getFonoCliente()}" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3">Correo elctrónico:</div>
+				<div class="col-3">
+					<input class="form-control" type="text" name="email"
+						value="${cliente.getMailCliente()}" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3">Rubro:</div>
+				<div class="col-3">
+					<input class="form-control" type="text" name="rubro"
+						value="${cliente.getRubro()}" />
+				</div>
+			</div>
 
-			<tr>
-				<td>Dirección:</td>
-				<td><input type="text" name="direccion"
-					value="${cliente.getDirCliente()}" /></td>
-			</tr>
 
-			<tr>
-				<td>Teléfono:</td>
-				<td><input type="text" name="telefono"
-					value="${cliente.getFonoCliente()}" /></td>
-			</tr>
+			<hr>
+			<div class="row">
 
-			<tr>
-				<td>Correo:</td>
-				<td><input type="text" name="correo"
-					value="${cliente.getMailCliente()}" /></td>
-			</tr>
+				<div class="col-3">
+					<input class="form-control" type="submit" value="Guardar">
+				</div>
+				<div class="col-3">
+					<a href="${pageContext.request.contextPath}/listarClientes">Volver</a>
+				</div>
 
-			<tr>
-				<td>Rubro:</td>
-				<td><input type="text" name="rubro"
-					value="${cliente.getRubro()}" /></td>
-			</tr>
-
-			<tr>
-				<td><input type="submit" name="enviar" value="Enviar">
-				</td>
-			</tr>
-		</table>
-	</form>
-	<br>
-	
-	
-	<a href="${pageContext.request.contextPath}/users/administrador.jsp">Volver</a>
+			</div>
+		</form:form>
+	</div>
 
 </body>
 </html>
