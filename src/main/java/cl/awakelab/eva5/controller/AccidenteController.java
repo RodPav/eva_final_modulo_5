@@ -1,7 +1,9 @@
 package cl.awakelab.eva5.controller;
 
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -13,7 +15,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import cl.awakelab.eva5.controller.AccidenteController;
 import cl.awakelab.eva5.model.Accidente;
 import cl.awakelab.eva5.services.IAccidenteService;
@@ -48,13 +54,20 @@ public class AccidenteController {
 		logger.info("INICIO MOSTRAR ACCIDENTE");
 
 		logger.info("id Accidente: " + id);
-
-		System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
+	
 		Accidente accidente = accidenteDAO.obtenerPorId(id);
-		return new ModelAndView("mostrarAccidente", "accidente", accidente);
-
+    	return new ModelAndView("mostrarAccidente", "accidente", accidente);
 	}
 	
+	@ModelAttribute("gravedadList")
+	   public Map<String, String> getGravedadList() {
+	      Map<String, String> gravedadList = new HashMap<String, String>();
+	      gravedadList.put("LE", "Leve");
+	      gravedadList.put("ME", "Medio");
+	      gravedadList.put("GR", "Grave");
+	      gravedadList.put("MO", "Mortal");
+	      return gravedadList;
+	   }
 	
 	@PutMapping("/editarAccidente/{id}")
 	public ModelAndView editarAccidente(Accidente accidente) {
