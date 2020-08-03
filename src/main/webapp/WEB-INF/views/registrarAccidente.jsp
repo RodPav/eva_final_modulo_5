@@ -81,13 +81,13 @@
 					<td><input type="text" name="correo" required/></td>
 				</tr>
 				<tr>
-					<td>Tipo de Accidente:</td>
+					<td>Gravedad del Accidente:</td>
 					<td>
 						<select name="accidente" required>
-			              	<option> Leve</option>
-			                <option> Medio</option>
-			            	<option> Grave</option>
-			            	<option> Mortal</option>
+			              	<option value = "Leve"> Leve </option>
+			                <option value = "Medio"> Medio </option>
+			            	<option value = "Grave"> Grave </option>
+			            	<option value = "Mortal"> Mortal </option>
 			        	</select>
 					</td>
 				</tr>
