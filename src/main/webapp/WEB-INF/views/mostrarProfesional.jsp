@@ -22,7 +22,7 @@
 	</c:if>
 
 	<form
-		action="${pageContext.request.contextPath}/AdminProfesional?action=actualizar"
+		action="${pageContext.request.contextPath}/editarProfesional"
 		method="POST">
 		<table>
 
