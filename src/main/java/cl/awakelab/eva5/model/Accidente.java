@@ -5,9 +5,12 @@ import java.time.LocalTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -19,30 +22,36 @@ public class Accidente {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_accidente")
 	private int idAccidente;
-	
-	@Column
+
+	@Column(name = "fecha_accidente")
 	private LocalDate fechaAccidente;
-	@Column
+	@Column(name = "hora_accidente")
 	private LocalTime horaAccidente;
-	@Column
-	private String tipoAccidente;
-	@Column
+
+	private String gravedad;
+
 	private String descripcion;
+
 	@Column(name = "fecha_ingreso")
 	private LocalDate fechaIngreso;
 	@Column(name = "hora_ingreso")
 	private LocalTime horaIngreso;
-	
-	public Accidente( LocalDate fechaAccidente, LocalTime horaAccidente, String tipoAccidente,
-			String descripcion, LocalDate fechaIngreso, LocalTime horaIngreso) {
-		super();
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "cliente_id_cliente")
+	private Cliente cliente;
+
+	public Accidente(int idAccidente, LocalDate fechaAccidente, LocalTime horaAccidente, String gravedad,
+			String descripcion, LocalDate fechaIngreso, LocalTime horaIngreso, Cliente cliente) {
+		super();
+		this.idAccidente = idAccidente;
 		this.fechaAccidente = fechaAccidente;
 		this.horaAccidente = horaAccidente;
-		this.tipoAccidente = tipoAccidente;
+		this.gravedad = gravedad;
 		this.descripcion = descripcion;
 		this.fechaIngreso = fechaIngreso;
 		this.horaIngreso = horaIngreso;
+		this.cliente = cliente;
 	}
 
 	public int getIdAccidente() {
@@ -69,12 +78,12 @@ public class Accidente {
 		this.horaAccidente = horaAccidente;
 	}
 
-	public String getTipoAccidente() {
-		return tipoAccidente;
+	public String getGravedad() {
+		return gravedad;
 	}
 
-	public void setTipoAccidente(String tipoAccidente) {
-		this.tipoAccidente = tipoAccidente;
+	public void setGravedad(String gravedad) {
+		this.gravedad = gravedad;
 	}
 
 	public String getDescripcion() {
@@ -101,15 +110,19 @@ public class Accidente {
 		this.horaIngreso = horaIngreso;
 	}
 
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
 	@Override
 	public String toString() {
 		return "Accidente [idAccidente=" + idAccidente + ", fechaAccidente=" + fechaAccidente + ", horaAccidente="
-				+ horaAccidente + ", tipoAccidente=" + tipoAccidente + ", descripcion=" + descripcion
-				+ ", fechaIngreso=" + fechaIngreso + ", horaIngreso=" + horaIngreso + "]";
+				+ horaAccidente + ", gravedad=" + gravedad + ", descripcion=" + descripcion + ", fechaIngreso="
+				+ fechaIngreso + ", horaIngreso=" + horaIngreso + ", cliente=" + cliente + "]";
 	}
-	
-	
 
-	
-	
 }
