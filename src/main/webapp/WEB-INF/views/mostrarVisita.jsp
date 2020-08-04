@@ -27,7 +27,7 @@
 			<div class="row">
 				<div class="col-3">Fecha Visita:</div>
 				<div class="col-3">
-					<input class="form-control" type="text" name="rut" readonly
+					<input class="form-control" type="text" name="fechaVisita" readonly
 						value="${visita.getFechaVisita()}" />
 				</div>
 			</div>
@@ -35,7 +35,7 @@
 			<div class="row">
 				<div class="col-3">Hora Visita:</div>
 				<div class="col-3">
-					<input class="form-control" type="text" name="rut" readonly
+					<input class="form-control" type="text" name="horaVisita" readonly
 						value="${visita.getHoraVisita()}" />
 				</div>
 			</div>
@@ -43,19 +43,29 @@
 			<div class="row">
 				<div class="col-3">Cliente:</div>
 				<div class="col-3">
-					<input class="form-control" type="text" name="rut" readonly
-						value="${visita.getCliente()}" />
+					<input class="form-control" type="text" name="nombreCliente" readonly
+						value="${visita.getCliente().getNombreCliente()}" />
 				</div>
 			</div>
 			
 			<div class="row">
 				<div class="col-3">Profesional:</div>
 				<div class="col-3">
-					<input class="form-control" type="text" name="rut" readonly
-						value="${visita.getProfesional()}" />
+					<input class="form-control" type="text" name="nombreProfesional" readonly
+						value="${visita.getProfesional().getNombreProfesional()}" />
 				</div>
 			</div>
 				
+				<div class="row">
+
+				<div class="col-3">
+					<input class="form-control" type="submit" value="Guardar">
+				</div>
+				<div class="col-3">
+					<a href="${pageContext.request.contextPath}/listarVisitas">Volver</a>
+				</div>
+
+			</div>
 			
 		</form:form>	
 		
