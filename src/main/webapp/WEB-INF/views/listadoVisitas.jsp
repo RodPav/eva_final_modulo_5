@@ -26,16 +26,16 @@
 
 		<c:forEach items="${lista_visita}" var="visita">
 			<tr>
-				<td>${visita.getCliente()}</td>
-				<td>${visita.getProfesional()}</td>
+				<td>${visita.getCliente().getNombreCliente()}</td>
+				<td>${visita.getProfesional().getNombreProfesional()}</td>
 				<td>${visita.getFechaVisita()}</td>
 				<td>${visita.getAsistentes()}</td>
 				<td>${visita.getListaChequeo()}</td>
 
 				<td>
-					<a href="${pageContext.request.contextPath}/AdminVisita?action=eliminar">Eliminar</a>
+					<a href="${pageContext.request.contextPath}/eliminarVisita/${visita.getIdVisita()}">Eliminar</a>
 					&nbsp; 
-					<a href="${pageContext.request.contextPath}/AdminVisita?id=actualizar">Actualizar</a>
+					<a href="${pageContext.request.contextPath}/mostrarVisita/${visita.getIdVisita()}">Actualizar</a>
 				</td>
 			</tr>
 		</c:forEach>
@@ -43,7 +43,7 @@
 	</table>
 	
 	<br>
-	<a href="${pageContext.request.contextPath}/users/administrador.jsp" >Volver</a>
+	<a href="${pageContext.request.contextPath}/administrador.jsp" >Volver</a>
 
 </body>
 </html>

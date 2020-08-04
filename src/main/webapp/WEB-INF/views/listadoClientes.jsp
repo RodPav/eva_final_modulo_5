@@ -43,10 +43,10 @@
 				<td>${cliente.getRubro()}</td>
 				
 				<td><a
-					href="${pageContext.request.contextPath}/AdminCliente?action=eliminar/${cliente.getRutCliente()}"><img
+					href="${pageContext.request.contextPath}/eliminarCliente/${cliente.getIdCliente()}"><img
 						src="${pageContext.request.contextPath}/img/eliminar.jpg" width=30pt
 						height=30pt></a> &nbsp; 
-						<a href="${pageContext.request.contextPath}/AdminCliente?action=mostrarPorRut/${cliente.getRutCliente()}"><img
+						<a href="${pageContext.request.contextPath}/mostrarCliente/${cliente.getIdCliente()}"><img
 						src="${pageContext.request.contextPath}/img/editar.jpg"  width=30pt height=30pt></a></td>
 
 
@@ -56,10 +56,10 @@
 	</table>
 	<br>
 	<div>
-		<a href="${pageContext.request.contextPath}/users/administrador.jsp">Volver</a>
+		<a href="${pageContext.request.contextPath}/administrador.jsp">Volver</a>
 	</div>
 	<div>
-		<a href="${pageContext.request.contextPath}/view/registrarCliente.jsp">Nuevo
+		<a href="${pageContext.request.contextPath}/registrarCliente.jsp">Nuevo
 			Usuario</a>
 	</div>
 

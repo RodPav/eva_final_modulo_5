@@ -21,8 +21,8 @@
 
 	<table>
 		<tr>
-			<th>Nombre Completo</th>
 			<th>Rut</th>
+			<th>Nombre Completo</th>
 			<th>Dirección</th>
 			<th>Teléfono</th>
 			<th>Correo electrónico</th>
@@ -32,19 +32,18 @@
 
 		<c:forEach items="${lista_profesional}" var="profesional">
 			<tr>
-				<td>${profesional.getNombreProfesional()}</td>
 				<td>${profesional.getRutProfesional()}</td>
+				<td>${profesional.getNombreProfesional()}</td>
 				<td>${profesional.getDirProfesional()}</td>
 				<td>${profesional.getFonoProfesional()}</td>
 				<td>${profesional.getMailProfesional()}</td>
 
 				<td><a
-					href="${pageContext.request.contextPath}/AdminProfesional?action=eliminar&id=${profesional.getRutProfesional()}"><img
+					href="${pageContext.request.contextPath}/eliminarProfesional/${profesional.getIdProfesional()}"><img
 						src="${pageContext.request.contextPath}/img/eliminar.jpg" width=30pt
 						height=30pt></a> &nbsp; 
-						<a href="${pageContext.request.contextPath}/AdminProfesional?action=mostrarPorRut&id=${profesional.getRutProfesional()}"><img
+						<a href="${pageContext.request.contextPath}/mostrarProfesional/${profesional.getIdProfesional()}"><img
 						src="${pageContext.request.contextPath}/img/editar.jpg"  width=30pt height=30pt></a></td>
-
 
 			</tr>
 		</c:forEach>
@@ -52,10 +51,10 @@
 	</table>
 	<br>
 	<div>
-		<a href="${pageContext.request.contextPath}/users/administrador.jsp">Volver</a>
+		<a href="${pageContext.request.contextPath}/administrador.jsp">Volver</a>
 	</div>
 	<div>
-		<a href="${pageContext.request.contextPath}/view/registrarProfesional.jsp">Nuevo
+		<a href="${pageContext.request.contextPath}/registrarProfesional.jsp">Nuevo
 			Profesional</a>
 	</div>
 

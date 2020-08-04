@@ -41,8 +41,8 @@
 				
 				<td>
 					<a href="${pageContext.request.contextPath}/AdminAccidente?action=eliminar">Eliminar</a>
-					&nbsp; 
-					<a href="${pageContext.request.contextPath}/AdminAccidente?id=actualizar">Actualizar</a>
+					&nbsp;A
+					<a href="${pageContext.request.contextPath}/mostrarAccidente/${accidente.GetIdAccidente()}">Actualizar</a>
 				</td>
 				
 			</tr>

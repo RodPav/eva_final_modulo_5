@@ -34,9 +34,9 @@
 				<td>${capacitacion.getTema()}</td>
 
 				<td>
-					<a href="${pageContext.request.contextPath}/AdminCapacitacion?action=eliminar">Eliminar</a>
+					<a href="${pageContext.request.contextPath}/eliminarCapa/${capacitacion.getId()}">Eliminar</a>
 					&nbsp; 
-					<a href="${pageContext.request.contextPath}/actualizarCapacitacion/${capacitacion.getId()}">Actualizar</a>
+					<a href="${pageContext.request.contextPath}/mostrarCapa/${capacitacion.getId()}">Actualizar</a>
 				</td>
 			</tr>
 		</c:forEach>
@@ -44,6 +44,6 @@
 	</table>
 	
 	<br>
-	<a href="${pageContext.request.contextPath}/users/administrador.jsp">Volver</a>
+	<a href="${pageContext.request.contextPath}/administrador.jsp">Volver</a>
 </body>
 </html>
