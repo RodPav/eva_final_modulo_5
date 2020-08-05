@@ -7,64 +7,64 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cl.awakelab.eva5.model.Capacitacion;
-import cl.awakelab.eva5.repositories.CapacitacionRepository;
+import cl.awakelab.eva5.model.Accidente;
+import cl.awakelab.eva5.repositories.AccidenteRepository;
 
 @Service
-public class AccidenteServiceImpl implements ICapacitacionService {
+public class AccidenteServiceImpl implements IAccidenteService {
 
-	private static final Logger logger = LoggerFactory.getLogger(ClienteServiceImpl.class);
+	private static final Logger logger = LoggerFactory.getLogger(AccidenteServiceImpl.class);
 	@Autowired
-	CapacitacionRepository capaRepo;
+	AccidenteRepository accRepo;
 
 	@Override
-	public void crearCapacitacion(Capacitacion nuevoCapa) {
+	public void crearAccidente(Accidente nuevoAcc) {
 
 		logger.info("INICIO CREAR");
 
-		logger.info("Datos Capa: " + nuevoCapa);
+		logger.info("Datos Capa: " + nuevoAcc);
 
-		capaRepo.save(nuevoCapa);
+		accRepo.save(nuevoAcc);
 	}
 
 	@Override
-	public Capacitacion obtenerPorId(int id) {
+	public Accidente obtenerPorId(int id) {
 
 		logger.info("INICIO MOSTRAR");
 
 		logger.info("id Capa: " + id);
 
-		return capaRepo.findOne(id);
+		return accRepo.findOne(id);
 	}
 
 	@Override
-	public List<Capacitacion> listarCapacitacion() {
+	public List<Accidente> listarAccidentes() {
 
 		logger.info("INICIO LISTAR");
 
-		List<Capacitacion> lista = (List<Capacitacion>) capaRepo.findAll();
+		List<Accidente> lista = (List<Accidente>) accRepo.findAll();
 		return lista;
 	}
 
 	@Override
-	public void editarCapacitacion(Capacitacion nuevoCapa) {
+	public void editarAccidente(Accidente accidente) {
 		
 		logger.info("INICIO EDITAR");
 		
-		logger.info("Datos Capa: " + nuevoCapa);
+		logger.info("Datos Capa: " + accidente);
 		
-		capaRepo.save(nuevoCapa);
+		accRepo.save(accidente);
 
 	}
 
 	@Override
-	public void eliminarCapacitacion(int id) {
+	public void eliminarAccidente(int id) {
 		
 		logger.info("INICIO ELIMINAR");
 
 		logger.info("id Capa: " + id);
 		
-		capaRepo.delete(id);
+		accRepo.delete(id);
 	}
 
 }
