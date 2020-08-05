@@ -18,47 +18,57 @@
 		<c:set var="visita" value="${visita}"></c:set>
 
 		<h1>Editar Visita</h1>
-		
+
 		<form:form action="${pageContext.request.contextPath}/editarVisita"
 			method="post">
-		
-		<input type="hidden" name="id" value="${visita.getIdVisita()}">
-			
+
+			<input type="hidden" name="id" value="${visita.getIdVisita()}">
+
 			<div class="row">
 				<div class="col-3">Fecha Visita:</div>
 				<div class="col-3">
-					<input class="form-control" type="text" name="rut" readonly
+					<input class="form-control" type="text" name="fechaVisita" readonly
 						value="${visita.getFechaVisita()}" />
 				</div>
 			</div>
-			
+
 			<div class="row">
 				<div class="col-3">Hora Visita:</div>
 				<div class="col-3">
-					<input class="form-control" type="text" name="rut" readonly
+					<input class="form-control" type="text" name="horaVisita" readonly
 						value="${visita.getHoraVisita()}" />
 				</div>
 			</div>
-			
+
 			<div class="row">
 				<div class="col-3">Cliente:</div>
 				<div class="col-3">
-					<input class="form-control" type="text" name="rut" readonly
-						value="${visita.getCliente()}" />
+					<input class="form-control" type="text" name="nombreCliente"
+						readonly value="${visita.getCliente().getNombreCliente()}" />
 				</div>
 			</div>
-			
+
 			<div class="row">
 				<div class="col-3">Profesional:</div>
 				<div class="col-3">
-					<input class="form-control" type="text" name="rut" readonly
-						value="${visita.getProfesional()}" />
+					<input class="form-control" type="text" name="nombreProfesional"
+						readonly value="${visita.getProfesional().getNombreProfesional()}" />
 				</div>
 			</div>
-				
-			
-		</form:form>	
-		
+
+			<div class="row">
+
+				<div class="col-3">
+					<input class="form-control" type="submit" value="Guardar">
+				</div>
+				<div class="col-3">
+					<a href="${pageContext.request.contextPath}/listarVisitas">Volver</a>
+				</div>
+
+			</div>
+
+		</form:form>
+
 	</div>
 
 </body>

@@ -13,7 +13,7 @@ import cl.awakelab.eva5.repositories.CapacitacionRepository;
 @Service
 public class CapacitacionServiceImpl implements ICapacitacionService {
 
-	private static final Logger logger = LoggerFactory.getLogger(ClienteServiceImpl.class);
+	private static final Logger logger = LoggerFactory.getLogger(CapacitacionServiceImpl.class);
 	@Autowired
 	CapacitacionRepository capaRepo;
 

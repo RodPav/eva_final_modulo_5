@@ -85,7 +85,7 @@
 			<div class="row">
 
 				<div class="col-3">
-					<input class="form-control" type="submit" value="Guardar">
+					<input class="form-control" type="submit" value="Registrar">
 				</div>
 				<div class="col-3">
 					<a href="${pageContext.request.contextPath}/listarClientes">Volver</a>

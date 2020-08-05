@@ -29,13 +29,13 @@
 				<td>${visita.getCliente()}</td>
 				<td>${visita.getProfesional()}</td>
 				<td>${visita.getFechaVisita()}</td>
-				<td>${visita.getAsistentes()}</td>
-				<td>${visita.getListaChequeo()}</td>
+				<td>${visita.getCliente()}</td>
+				<td>${visita.getProfesional()}</td>
 
 				<td>
-					<a href="${pageContext.request.contextPath}/AdminVisita?action=eliminar">Eliminar</a>
+					<a href="${pageContext.request.contextPath}/eliminarVisita">Eliminar</a>
 					&nbsp; 
-					<a href="${pageContext.request.contextPath}/AdminVisita?id=actualizar">Actualizar</a>
+					<a href="${pageContext.request.contextPath}/mostrarVisita">Actualizar</a>
 				</td>
 			</tr>
 		</c:forEach>

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import cl.awakelab.eva5.model.Capacitacion;
 import cl.awakelab.eva5.model.Visita;
 import cl.awakelab.eva5.services.IVisitaService;
 
