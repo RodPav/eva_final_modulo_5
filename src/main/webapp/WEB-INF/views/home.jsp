@@ -22,7 +22,7 @@
 						<h3><c:out value="${lmensaje}"></c:out></h3>
 					</c:if>
 					
-					<form action="${pageContext.request.contextPath}/view/usuarioAdministrador.jsp" method="post">
+					<form action="${pageContext.request.contextPath}/administrador.jsp" method="post">
 						Nombre: <input type="text" name="usuario" /><br/>
 						Clave: <input type="password" name="clave" /><br/>
 						<input type="submit" value="Ingresar" />
@@ -36,7 +36,7 @@
 						<h3><c:out value="${lmensaje}"></c:out></h3>
 					</c:if>
 					
-					<form action="${pageContext.request.contextPath}/view/usuarioProfesional.jsp" method="post">
+					<form action="${pageContext.request.contextPath}/profesional.jsp" method="post">
 						Nombre: <input type="text" name="usuario" /><br/>
 						Clave: <input type="password" name="clave" /><br/>
 						<input type="submit" value="Ingresar" />
