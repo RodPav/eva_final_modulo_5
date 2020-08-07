@@ -2,9 +2,7 @@
 body{
 	margin: 20px;
 	padding:10px;
-	background: #ffefba; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #ffefba, #ffffff); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #ffefba, #ffffff);
+	background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 	color: midnightblue;
 }
 h1{
@@ -19,6 +17,20 @@ input{
 	border: 1px solid black;
 }
 
+footer {
+    background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
+   position: fixed;
+    overflow:auto;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center
+    } 
+    
+.blacktopline{
+    height: 20px;
+    background-color: lightslategray;
+}
 
 h3{
 	font-family: Time New Roman;
@@ -70,4 +82,12 @@ h3{
 a{
 	font-size: 30px;
 	text-align: center;
-}
+} 
+
+/* RESPONSIVE & MEDIA */
+.responsive {
+    max-width: 100%;
+    height: auto;
+    position: center;
+} 
+

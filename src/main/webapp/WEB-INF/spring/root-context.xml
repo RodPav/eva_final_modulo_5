@@ -17,8 +17,8 @@
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		p:driverClassName="oracle.jdbc.driver.OracleDriver" 
 		p:url="jdbc:oracle:thin:@localhost:1521:xe" 
-		p:username="rodrigo" 
-		p:password="admin" />
+		p:username="system" 
+		p:password="321654987" />
 		
 	<bean id="hibernateJpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />	
 	

@@ -2,7 +2,6 @@
 body{
 	margin: 15px;
 	padding: 10px;
-	background-color: #DCD9D4; 
 	background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 	background-blend-mode: soft-light,screen;
 	font-family: 'Times New Roman', Times, serif;
@@ -43,3 +42,26 @@ th{
 	background-color: rgb(206, 206, 206);
 	color: black;
 }
+
+footer {
+    background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
+   position: fixed;
+    overflow:auto;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center
+    } 
+    
+.blacktopline{
+    height: 20px;
+    background-color: lightslategray;
+} 
+
+/* RESPONSIVE & MEDIA */
+.responsive {
+    max-width: 100%;
+    height: auto;
+    position: center;
+}  
+
