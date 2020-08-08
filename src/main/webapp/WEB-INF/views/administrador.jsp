@@ -10,28 +10,28 @@
 		<link rel="stylesheet" href="../css/style.css">
 	</head>
 	
-	
+
 	<body>
 		<h1>Administrador</h1>
 		
 		<h3>Clientes</h3>
-		<div><a href="${pageContext.request.contextPath}/registrarCliente.jsp">Nuevo Cliente</a></div>
+		<div><a href="${pageContext.request.contextPath}/registrarCliente">Nuevo Cliente</a></div>
 		<div><a href="${pageContext.request.contextPath}/listarClientes">Listado de Clientes</a></div>
 		
 		<h3>Profesionales</h3>
-		<div><a href="${pageContext.request.contextPath}/registrarProfesional.jsp">Nuevo Profesional</a></div>
+		<div><a href="${pageContext.request.contextPath}/registrarProfesional">Nuevo Profesional</a></div>
 		<div><a href="${pageContext.request.contextPath}/listarProfesionales">Listado de Profesionales</a></div>
 		
 		<h3>Accidentes</h3>
-		<div><a href="${pageContext.request.contextPath}/registrarAccidente.jsp">Registro de Accidente</a></div>
+		<div><a href="${pageContext.request.contextPath}/registrarAccidente">Registro de Accidente</a></div>
 		<div><a href="${pageContext.request.contextPath}/listarAccidentes">Listado de Accidente</a></div>
 		
 		<h3>Capacitaciones</h3>
-		<div><a href="${pageContext.request.contextPath}/registrarCapacitacion.jsp">Registro de Capacitaciones</a></div>
+		<div><a href="${pageContext.request.contextPath}/registrarCapacitacion">Registro de Capacitaciones</a></div>
 		<div><a href="${pageContext.request.contextPath}/listarCapa">Listado de Capacitaciones</a></div>
 		
 		<h3>Visitas</h3>
-		<div><a href="${pageContext.request.contextPath}/registrarVisita.jsp">Registro de Visita</a></div>
+		<div><a href="${pageContext.request.contextPath}/registrarVisita">Registro de Visita</a></div>
 		<div><a href="${pageContext.request.contextPath}/listarVisitas">Listado de Visitas</a></div>
 		
 

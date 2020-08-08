@@ -40,7 +40,7 @@
 				
 				
 				<td>
-					<a href="${pageContext.request.contextPath}/AdminAccidente?action=eliminar">Eliminar</a>
+					<a href="${pageContext.request.contextPath}/eliminarAccidente${accidente.GetIdAccidente()}">Eliminar</a>
 					&nbsp;A
 					<a href="${pageContext.request.contextPath}/mostrarAccidente/${accidente.GetIdAccidente()}">Actualizar</a>
 				</td>
@@ -51,7 +51,7 @@
 	</table>
 		
 		<br>
-		<a href="${pageContext.request.contextPath}/users/administrador.jsp" >Volver</a>
+		<a href="${pageContext.request.contextPath}/administrador.jsp" >Volver</a>
 		
 	</body>
 </html>

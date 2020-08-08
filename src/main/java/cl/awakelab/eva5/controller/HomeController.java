@@ -12,17 +12,31 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class HomeController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home() {
-		
+
 		logger.info("Inicio HOME");
-		return new ModelAndView("home");
+		return new ModelAndView("administrador");
+	}
+
+	@RequestMapping(value = "/registrarCliente", method = RequestMethod.GET)
+	public ModelAndView regCliente() {
+
+		logger.info("Inicio admin");
+		return new ModelAndView("registrarCliente");
 	}
 	
+	@RequestMapping(value = "/registrarProfesional", method = RequestMethod.GET)
+	public ModelAndView regProfe() {
+
+		logger.info("Inicio admin");
+		return new ModelAndView("registrarProfesional");
+	}
+
 }

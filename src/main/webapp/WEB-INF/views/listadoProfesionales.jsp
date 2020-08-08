@@ -6,13 +6,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Listado de Profesionales</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/styleListado.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/styleListado.css">
 </head>
 <body>
 
 	<h1>Listado de Profesionales</h1>
 
-		<c:if test="${alerta != null}">
+	<c:if test="${alerta != null}">
 		<script>
 			var message = "${alerta}";
 			alert(message);
@@ -26,11 +27,11 @@
 			<th>Dirección</th>
 			<th>Teléfono</th>
 			<th>Correo electrónico</th>
-	
-	
+
+
 		</tr>
 
-		<c:forEach items="${lista_profesional}" var="profesional">
+		<c:forEach items="${lista_profesionales}" var="profesional">
 			<tr>
 				<td>${profesional.getRutProfesional()}</td>
 				<td>${profesional.getNombreProfesional()}</td>
@@ -40,22 +41,25 @@
 
 				<td><a
 					href="${pageContext.request.contextPath}/eliminarProfesional/${profesional.getIdProfesional()}"><img
-						src="${pageContext.request.contextPath}/img/eliminar.jpg" width=30pt
-						height=30pt></a> &nbsp; 
-						<a href="${pageContext.request.contextPath}/mostrarProfesional/${profesional.getIdProfesional()}"><img
-						src="${pageContext.request.contextPath}/img/editar.jpg"  width=30pt height=30pt></a></td>
+						src="${pageContext.request.contextPath}/img/eliminar.jpg"
+						width=30pt height=30pt></a> &nbsp; <a
+					href="${pageContext.request.contextPath}/mostrarProfesional/${profesional.getIdProfesional()}"><img
+						src="${pageContext.request.contextPath}/img/editar.jpg" width=30pt
+						height=30pt></a></td>
 
 			</tr>
 		</c:forEach>
 
 	</table>
 	<br>
+
 	<div>
-		<a href="${pageContext.request.contextPath}/administrador.jsp">Volver</a>
-	</div>
-	<div>
-		<a href="${pageContext.request.contextPath}/registrarProfesional.jsp">Nuevo
+		<a href="${pageContext.request.contextPath}/registrarProfesional">Nuevo
 			Profesional</a>
+	</div>
+
+	<div>
+		<a href="${pageContext.request.contextPath}/administrador">Volver</a>
 	</div>
 
 </body>

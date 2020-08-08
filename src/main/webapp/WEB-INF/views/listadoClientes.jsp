@@ -31,7 +31,7 @@
 			<th>Rubro</th>
 		</tr>
 
-		<c:forEach items="${lista_clientes}" var="cliente">
+		<c:forEach items="${lista_cliente}" var="cliente">
 			<tr>
 				<td>${cliente.getRutCliente()}</td>
 				<td>${cliente.getNombreCliente()}</td>
@@ -56,10 +56,10 @@
 	</table>
 	<br>
 	<div>
-		<a href="${pageContext.request.contextPath}/administrador.jsp">Volver</a>
+		<a href="${pageContext.request.contextPath}/administrador">Volver</a>
 	</div>
 	<div>
-		<a href="${pageContext.request.contextPath}/registrarCliente.jsp">Nuevo
+		<a href="${pageContext.request.contextPath}/registrarCliente">Nuevo
 			Usuario</a>
 	</div>
 

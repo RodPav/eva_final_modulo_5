@@ -1,68 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Login</title>
-		<link rel="stylesheet" href="${pageContext.request.contextPath}../css/styleIndex.css">
-	</head>
-	
-	
-	<body>
-		<h1>EvaluaciÃ³n Grupal MÃ³dulo 5</h1>
-		
-		
-		
-		<div class="col1">
-			<h3>Login Administrador</h3>
-					<c:if test="${lmensaje != null}">
-						<h3><c:out value="${lmensaje}"></c:out></h3>
-					</c:if>
-					
-					<form action="${pageContext.request.contextPath}/administrador.jsp" method="post">
-						Nombre: <input type="text" name="usuario" /><br/>
-						Clave: <input type="password" name="clave" /><br/>
-						<input type="submit" value="Ingresar" />
-					</form>
-		</div>
-		
-		
-		<div class="col2">
-			<h3>Login Profesional</h3>
-					<c:if test="${lmensaje != null}">
-						<h3><c:out value="${lmensaje}"></c:out></h3>
-					</c:if>
-					
-					<form action="${pageContext.request.contextPath}/profesional.jsp" method="post">
-						Nombre: <input type="text" name="usuario" /><br/>
-						Clave: <input type="password" name="clave" /><br/>
-						<input type="submit" value="Ingresar" />
-					</form>
-		</div>
-		
-		<div class="col3">
-					<h3>Login Cliente</h3>
-					<c:if test="${lmensaje != null}">
-						<h3><c:out value="${lmensaje}"></c:out></h3>
-					</c:if>
-					
-					<form action="${pageContext.request.contextPath}/view/usuarioCliente.jsp" method="post">
-						Nombre: <input type="text" name="usuario" /><br/>
-						Clave: <input type="password" name="clave" /><br/>
-						<input type="submit" value="Ingresar" />
-					</form>
-		
-		</div>
-		
-		
-		
-		
-		
-		
-	
-		
-	</body>
+<head>
+	<title>Empleados</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+
+<h1>Múdulo de Clientes</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<a href="listarEmpleados">Listar los empleados</a></nav>
+
+<a href="${pageContext.request.contextPath}/dministrador">menú admin</a>
+
+</div>
+</body>
 </html>
